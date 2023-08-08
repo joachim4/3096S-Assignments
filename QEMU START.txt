@@ -1,0 +1,1 @@
+qemu-system-arm -M versatilepb -cpu arm1176 -m 256 -kernel qemu-rpi-kernel/kernel-qemu-4.19.50-buster -drive file=rpi.img,format=raw -append "dwc_otg.lpm_enable=0 root=/dev/sda2 console=tty1 rootfstype=ext4 elevator=deadline rootwait" -dtb qemu-rpi-kernel/versatile-pb-buster.dtb
