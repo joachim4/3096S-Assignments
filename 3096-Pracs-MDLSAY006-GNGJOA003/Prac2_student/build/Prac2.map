@@ -1471,19 +1471,19 @@ LOAD d:/program files/stm32 cube ide/stm32cubeide_1.12.1/stm32cubeide/plugins/co
  .debug_abbrev  0x0000000000001914      0x31e build/stm32f0xx_ll_utils.o
  .debug_abbrev  0x0000000000001c32       0x12 build/startup_stm32f051x8.o
 
-.debug_loc      0x0000000000000000     0xa83f
- .debug_loc     0x0000000000000000      0x5f0 build/main.o
- .debug_loc     0x00000000000005f0       0x20 build/stm32f0xx_it.o
- .debug_loc     0x0000000000000610      0x187 build/system_stm32f0xx.o
- .debug_loc     0x0000000000000797      0x3f6 build/stm32f0xx_ll_gpio.o
- .debug_loc     0x0000000000000b8d      0x1e1 build/stm32f0xx_hal.o
- .debug_loc     0x0000000000000d6e      0x2ac build/stm32f0xx_ll_exti.o
- .debug_loc     0x000000000000101a      0x473 build/stm32f0xx_hal_cortex.o
- .debug_loc     0x000000000000148d      0x420 build/stm32f0xx_hal_gpio.o
- .debug_loc     0x00000000000018ad     0x6155 build/stm32f0xx_hal_tim.o
- .debug_loc     0x0000000000007a02     0x26bf build/stm32f0xx_hal_tim_ex.o
- .debug_loc     0x000000000000a0c1       0x82 build/stm32f0xx_hal_msp.o
- .debug_loc     0x000000000000a143      0x6fc build/stm32f0xx_ll_utils.o
+.debug_loc      0x0000000000000000     0xa84c
+ .debug_loc     0x0000000000000000      0x5fd build/main.o
+ .debug_loc     0x00000000000005fd       0x20 build/stm32f0xx_it.o
+ .debug_loc     0x000000000000061d      0x187 build/system_stm32f0xx.o
+ .debug_loc     0x00000000000007a4      0x3f6 build/stm32f0xx_ll_gpio.o
+ .debug_loc     0x0000000000000b9a      0x1e1 build/stm32f0xx_hal.o
+ .debug_loc     0x0000000000000d7b      0x2ac build/stm32f0xx_ll_exti.o
+ .debug_loc     0x0000000000001027      0x473 build/stm32f0xx_hal_cortex.o
+ .debug_loc     0x000000000000149a      0x420 build/stm32f0xx_hal_gpio.o
+ .debug_loc     0x00000000000018ba     0x6155 build/stm32f0xx_hal_tim.o
+ .debug_loc     0x0000000000007a0f     0x26bf build/stm32f0xx_hal_tim_ex.o
+ .debug_loc     0x000000000000a0ce       0x82 build/stm32f0xx_hal_msp.o
+ .debug_loc     0x000000000000a150      0x6fc build/stm32f0xx_ll_utils.o
 
 .debug_aranges  0x0000000000000000      0x8c0
  .debug_aranges
@@ -1528,20 +1528,20 @@ LOAD d:/program files/stm32 cube ide/stm32cubeide_1.12.1/stm32cubeide/plugins/co
  .debug_ranges  0x0000000000000890       0x50 build/stm32f0xx_ll_utils.o
  .debug_ranges  0x00000000000008e0       0x20 build/startup_stm32f051x8.o
 
-.debug_line     0x0000000000000000     0xa917
- .debug_line    0x0000000000000000      0xd6a build/main.o
- .debug_line    0x0000000000000d6a      0x328 build/stm32f0xx_it.o
- .debug_line    0x0000000000001092      0x371 build/system_stm32f0xx.o
- .debug_line    0x0000000000001403      0x5bf build/stm32f0xx_ll_gpio.o
- .debug_line    0x00000000000019c2      0x652 build/stm32f0xx_hal.o
- .debug_line    0x0000000000002014      0x507 build/stm32f0xx_ll_exti.o
- .debug_line    0x000000000000251b      0x65e build/stm32f0xx_hal_cortex.o
- .debug_line    0x0000000000002b79      0x7ab build/stm32f0xx_hal_gpio.o
- .debug_line    0x0000000000003324     0x4c4f build/stm32f0xx_hal_tim.o
- .debug_line    0x0000000000007f73     0x1d38 build/stm32f0xx_hal_tim_ex.o
- .debug_line    0x0000000000009cab      0x395 build/stm32f0xx_hal_msp.o
- .debug_line    0x000000000000a040      0x860 build/stm32f0xx_ll_utils.o
- .debug_line    0x000000000000a8a0       0x77 build/startup_stm32f051x8.o
+.debug_line     0x0000000000000000     0xa91b
+ .debug_line    0x0000000000000000      0xd6e build/main.o
+ .debug_line    0x0000000000000d6e      0x328 build/stm32f0xx_it.o
+ .debug_line    0x0000000000001096      0x371 build/system_stm32f0xx.o
+ .debug_line    0x0000000000001407      0x5bf build/stm32f0xx_ll_gpio.o
+ .debug_line    0x00000000000019c6      0x652 build/stm32f0xx_hal.o
+ .debug_line    0x0000000000002018      0x507 build/stm32f0xx_ll_exti.o
+ .debug_line    0x000000000000251f      0x65e build/stm32f0xx_hal_cortex.o
+ .debug_line    0x0000000000002b7d      0x7ab build/stm32f0xx_hal_gpio.o
+ .debug_line    0x0000000000003328     0x4c4f build/stm32f0xx_hal_tim.o
+ .debug_line    0x0000000000007f77     0x1d38 build/stm32f0xx_hal_tim_ex.o
+ .debug_line    0x0000000000009caf      0x395 build/stm32f0xx_hal_msp.o
+ .debug_line    0x000000000000a044      0x860 build/stm32f0xx_ll_utils.o
+ .debug_line    0x000000000000a8a4       0x77 build/startup_stm32f051x8.o
 
 .debug_str      0x0000000000000000     0x2da7
  .debug_str     0x0000000000000000      0xd59 build/main.o

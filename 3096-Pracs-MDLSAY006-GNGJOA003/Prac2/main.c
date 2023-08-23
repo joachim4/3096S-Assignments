@@ -124,12 +124,9 @@ int main(void) {
 		write_to_address(eepAddress++, patterns[i]);
 	}
 
-	uint32_t longPeriod = 3000;
+	uint32_t longPeriod = 1000;
 	uint32_t shortPeriod = 500;
 	uint32_t currentPeriod = longPeriod;
-
-	uint32_t current_time;
-	uint32_t previous_time;
 
 	/* USER CODE END 2 */
 
@@ -141,8 +138,8 @@ int main(void) {
 		/* USER CODE BEGIN 3 */
 
 		// TODO: Check button PA0; if pressed, change timer delay
-		if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0) == 0) {
-			// When the button is pressed, it changes to a 0.5-second delay
+		while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0) == 0) {
+			// When the button is pressed, it changes to a half second delay
 			if (currentPeriod == shortPeriod) {
 				currentPeriod = longPeriod;
 			} else if(currentPeriod == longPeriod) {
@@ -152,37 +149,6 @@ int main(void) {
 			__HAL_TIM_SET_AUTORELOAD(&htim16, currentPeriod);
 		}
 
-		/* else
-		 {
-		 // When the button is not pressed, it uses default 1-second delay
-		 currentPeriod = longPeriod;
-		 __HAL_TIM_SET_AUTORELOAD(&htim16, currentPeriod);
-		 } */
-
-		//  uint8_t state = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0);
-
-		/*  if (HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_0) == 1)
-		 {
-		 // When the button is pressed, it changes to a 0.5-second delay
-		 currentPeriod = shortPeriod;
-		 __HAL_TIM_SET_AUTORELOAD(&htim16, currentPeriod);
-		 }
-		 if (HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_0) == 0)
-		 {
-		 // When the button is not pressed, it uses default 1-second delay
-		 currentPeriod = longPeriod;
-		 __HAL_TIM_SET_AUTORELOAD(&htim16, currentPeriod);
-		 }
-		 */
-		/*    while (state == 0) {
-		 __HAL_TIM_SET_AUTORELOAD(&htim16, longPeriod);
-		 }
-		 while (state == 1){
-		 __HAL_TIM_SET_AUTORELOAD(&htim16, shortPeriod);
-		 } */
-
-		// Update the TIM16 ARR value to change the delay period
-		// Delay until the next timer interrupt (1 second or 0.5 seconds)
 		HAL_Delay(1);
 
 	}
