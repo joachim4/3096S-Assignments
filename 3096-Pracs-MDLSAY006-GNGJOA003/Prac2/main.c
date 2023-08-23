@@ -63,7 +63,7 @@ static uint8_t patterns[] = { 0b10101010, // 10101010 in binary
 		0b11110000, // 11110000 in binary
 		0b00001111  // 00001111 in binary
 		};
-char lcd_buffer[16];
+
 
 /* USER CODE END PV */
 
@@ -98,7 +98,6 @@ int main(void) {
 	HAL_Init();
 
 	/* USER CODE BEGIN Init */
-	uint8_t hello = 0;
 
 	/* USER CODE END Init */
 
@@ -138,7 +137,7 @@ int main(void) {
 		/* USER CODE BEGIN 3 */
 
 		// TODO: Check button PA0; if pressed, change timer delay
-		while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0) == 0) {
+		if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0) == 0) {
 			// When the button is pressed, it changes to a half second delay
 			if (currentPeriod == shortPeriod) {
 				currentPeriod = longPeriod;
@@ -489,6 +488,7 @@ void TIM16_IRQHandler(void) {
 	}
 
 	// TODO: Change to next LED pattern; output 0x01 if the read SPI data is incorrect
+
 	// Assign default value if incorrect SPI address
 	uint8_t failsafeValue = patterns[positionAddress];
 	if (bValue != failsafeValue) {
