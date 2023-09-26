@@ -110,8 +110,12 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	// LED0
-	HAL_GPIO_TogglePin(GPIOB, LED7_Pin);
+	  curr_millis = HAL_GetTick();
+	  // Get the time as soon as the button is clicked
+	  if (curr_millis - prev_millis >= 100){
+		  HAL_GPIO_TogglePin(GPIOB, LED7_Pin);
+		  prev_millis = curr_millis;
+	  }
 
 	// ADC to LCD; TODO: Read POT1 value and write to LCD
 
@@ -354,26 +358,27 @@ void EXTI0_1_IRQHandler(void)
 {
 	// TODO: Add code to switch LED7 delay frequency
 
-	// Get the time as soon as the button is clicked
-	uint32_t curr_millis = HAL_GetTick();
+	curr_millis = HAL_GetTick(); // GetTick fn gives us the current system time elapsed
 
-	// Change freq if button is pressed and 1 second has passed since last button press
-	    if (HAL_GPIO_ReadPin(Button0_GPIO_Port, Button0_Pin) == 0 && curr_millis - prev_millis >= 1000)  // Check time since last button press
+	    if (__HAL_GPIO_EXTI_GET_IT(Button0_Pin) != 0)
 	    {
+	     if (curr_millis - prev_millis >= 150) // Checked to see if enough time has passed since the previous time the button was clicked
+	     {
 	        // Toggle the LED frequency between 1 Hz and 2 Hz
-	        if (delay_t == 500)
-	        {
-	            delay_t = 1000;  // 1000 delay equates to 1 Hz
-	        }
-	        else
-	        {
-	            delay_t = 500; // 500 delay equates to to 2 Hz
-	        }
+	    	 if (delay_t == 500)
+	    	 	{
+	    	 	   delay_t = 1000; // 1000 delay equates to 1 Hz
 
-	        // Store the time of the last button click (to be used for comparison)
-	               prev_millis = curr_millis;
+	    	 	}
+	    	 else
+	        	{
+	        	   delay_t = 500;     // 500 delay equates to to 2 Hz
+	            }
+
+	         prev_millis = curr_millis; // Save that old system time to be compared later
+	         }
 	    }
-  
+
 	HAL_GPIO_EXTI_IRQHandler(Button0_Pin); // Clear interrupt flags
 }
 
@@ -405,8 +410,10 @@ uint32_t ADCtoCCR(uint32_t adc_val){
 	 // Since the ADC configured to 12-bit mode, input ADC integer is between 0-4095
 	 // While the Capture/Compare Register requires value in range 0-ARR(max)
 	 // to have control on the PWM duty cycle
+
 	uint32_t ADCvalueRange = 4095;
 	uint32_t ARRvalueRange = 47999;
+
 	// Corresponds to 1kHz frequency for PWM signal
 	// With Duty cycle = CCR/ARR
 
