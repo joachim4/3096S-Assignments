@@ -1,3 +1,6 @@
+//https://github.com/joachim4/3096S-Assignments
+// GNGJOA003 and MDLSAY006
+
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
@@ -34,7 +37,7 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 // TODO: Add values for below variables
-#define NS 129        // Number of samples in LUT
+#define NS 128        // Number of samples in LUT
 #define TIM2CLK 8000000 // STM Clock frequency
 #define F_SIGNAL 200 // Frequency of output analog signal
 /* USER CODE END PD */
@@ -396,7 +399,7 @@ void EXTI0_1_IRQHandler(void)
 		 prev_millis = curr_millis; // Save that old system time to be compared later
 
 		__HAL_TIM_ENABLE_DMA(&htim2, TIM_DMA_CC1);
-		End = Start;
+		//End = Start;
 
 		}
 	}
