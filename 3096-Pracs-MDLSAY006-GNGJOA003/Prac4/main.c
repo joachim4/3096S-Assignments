@@ -65,7 +65,7 @@ uint32_t saw_LUT[NS] = {0,8,16,24,32,40,47,55,63,71,79,86,94,102,110,118,125,133
 
 uint32_t triangle_LUT[NS] = {0,16,32,47,63,79,94,110,125,141,157,172,188,204,219,235,250,266,282,297,313,329,344,360,375,391,407,422,438,454,469,485,500,516,532,547,563,579,594,610,625,641,657,672,688,704,719,735,750,766,782,797,813,829,844,860,875,891,907,922,938,954,969,985,1000,985,969,954,938,922,907,891,875,860,844,829,813,797,782,766,750,735,719,704,688,672,657,641,625,610,594,579,563,547,532,516,500,485,469,454,438,422,407,391,375,360,344,329,313,297,282,266,250,235,219,204,188,172,157,141,125,110,94,79,63,47,32,16,0};
 
-int Waveform = 0;
+int Signal = 0;
 
 // TODO: Equation to calculate TIM2_Ticks
 uint32_t TIM2_Ticks = ((uint32_t)(TIM2CLK/F_SIGNAL))/NS; // How often to write new LUT value
@@ -375,8 +375,9 @@ void EXTI0_1_IRQHandler(void)
 		__HAL_TIM_DISABLE_DMA(&htim2, TIM_DMA_CC1);
 		HAL_DMA_Abort_IT(&hdma_tim2_ch1);
 
-		Waveform = (Waveform+1)%3;
-		switch(Waveform)
+		Signal = Signal + 1;
+		Signal = Signal % 3;
+		switch(Signal)
 		{
 			case 0:
 				HAL_DMA_Start_IT(&hdma_tim2_ch1, (uint32_t)Sin_LUT, DestAddress, NS);
